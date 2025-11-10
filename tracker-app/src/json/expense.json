@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Gaji Bulanan",
+    "nominal": 8000000,
+    "type": "income",
+    "category": "salary",
+    "date": "2025-11-01"
+  },
+  {
+    "id": 3,
+    "title": "Isi Bensin Motor",
+    "nominal": 50000,
+    "type": "expense",
+    "category": "transport",
+    "date": "2025-11-04"
+  },
+  {
+    "id": 4,
+    "title": "Bonus Proyek",
+    "nominal": 1500000,
+    "type": "income",
+    "category": "salary",
+    "date": "2025-11-05"
+  },
+  {
+    "id": 5,
+    "title": "Makan Malam di Restoran",
+    "nominal": 120000,
+    "type": "expense",
+    "category": "food",
+    "date": "2025-11-06"
+  }
+]

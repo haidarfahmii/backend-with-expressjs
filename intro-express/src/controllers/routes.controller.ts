@@ -10,6 +10,7 @@ interface Route {
   id: string;
   departure_city: string;
   destination_city: string;
+  // date: string;
   schedules: Schedule[];
   vehicle: string;
   total_seat: number;
@@ -18,13 +19,17 @@ interface Route {
 
 export function getRoutes(req: Request, res: Response) {
   try {
-    const { from, to } = req.query as { from?: string; to?: string };
+    const { from, to } = req.query as {
+      from?: string;
+      to?: string;
+      // date?: string;
+      // schedule?: string;
+    };
+
     const data = fs.readFileSync("./src/json/routes.json", "utf8");
     let routes: Route[] = JSON.parse(data);
 
     let filteredRoutes = routes;
-
-    console.log(from, to);
 
     if (from) {
       filteredRoutes = filteredRoutes.filter(
@@ -37,6 +42,18 @@ export function getRoutes(req: Request, res: Response) {
         (route) => route.destination_city.toLowerCase() === to.toLowerCase()
       );
     }
+
+    // Filter by date
+    // if (date) {
+    //   filteredRoutes = filteredRoutes.filter((route) => route.date === date);
+    // }
+
+    // Filter by schedule (departure_time)
+    // if (schedule) {
+    //   filteredRoutes = filteredRoutes.filter((route) =>
+    //     route.schedules.some((s) => s.departure_time === schedule)
+    //   );
+    // }
 
     res.status(200).json({
       success: true,

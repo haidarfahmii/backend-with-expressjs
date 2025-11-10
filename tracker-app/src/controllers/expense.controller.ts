@@ -1,17 +1,9 @@
 import { Request, Response } from "express";
 import fs from "fs";
-// import { format, parseISO,  } from "date-fns";
+import path from "path";
+import { Expense } from "../dto/expense.dto";
 
-interface Expense {
-  id: string;
-  title: string;
-  nominal: number;
-  type: "income" | "expense";
-  category: "salary" | "food" | "transport" | string;
-  date: string;
-}
-
-const dbPath = "./src/json/expenses.json";
+const dbPath = path.resolve(__dirname, "../json/expense.json");
 
 const readDB = (): Expense[] => {
   const data = fs.readFileSync(dbPath, "utf8");
@@ -25,6 +17,7 @@ const writeDB = (data: Expense[]): void => {
 export function getAllExpenses(req: Request, res: Response) {
   try {
     const expenses = readDB();
+
     res.status(200).json({
       success: true,
       message: "Get expenses successfully",
@@ -41,7 +34,10 @@ export function getAllExpenses(req: Request, res: Response) {
 export function getExpensesById(req: Request, res: Response) {
   try {
     const expenses = readDB();
-    const expense = expenses.find((e) => e.id === req.params.id);
+
+    const idToFind = parseInt(req.params.id, 10);
+
+    const expense = expenses.find((e: any) => e.id === idToFind);
 
     if (!expense) throw new Error("Expense not found");
 

@@ -3,7 +3,7 @@ import expenseRouter from "./router/expense.router";
 
 const app: Express = express();
 app.use(express.json());
-const port = 5001;
+const port = 8000;
 
 app.get("/", (_: Request, res: Response) => {
   res.status(200).json({

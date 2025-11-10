@@ -19,6 +19,24 @@ export function registerUser(req: Request, res: Response) {
     const data = fs.readFileSync("./src/json/users.json", "utf8");
     const users: User[] = JSON.parse(data);
 
+    // validasri emai sudah terdaftar
+    const existingEmail = users.find((u) => u.email === email);
+    if (existingEmail) {
+      return res.status(400).json({
+        success: false,
+        message: "Email already registered",
+      });
+    }
+
+    // Validasi username sudah terdaftar
+    const existingUsername = users.find((u) => u.username === username);
+    if (existingUsername) {
+      return res.status(400).json({
+        success: false,
+        message: "Username already taken",
+      });
+    }
+
     const newUser: User = {
       uid: String(Date.now()),
       username,
@@ -28,7 +46,7 @@ export function registerUser(req: Request, res: Response) {
     };
 
     users.push(newUser);
-    fs.writeFileSync("./src/json/users.json", JSON.stringify(users));
+    fs.writeFileSync("./src/json/users.json", JSON.stringify(users, null, 2));
 
     res.status(201).json({
       success: true,

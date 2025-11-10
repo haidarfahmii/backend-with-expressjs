@@ -3,6 +3,7 @@ import productsRouter from "./routers/products.router";
 import usersRouter from "./routers/users.router";
 import routesRouter from "./routers/routes.router";
 import transactionsRouter from "./routers/transactions.router";
+import adminRoutesRouter from "./routers/admin.routes.router";
 
 const app: Express = express();
 app.use(express.json());
@@ -18,6 +19,7 @@ app.use("/api/products", productsRouter);
 app.use("/api/auth", usersRouter);
 app.use("/api/routes-travel", routesRouter);
 app.use("/api/transactions", transactionsRouter);
+app.use("/api/admin/routes-travel", adminRoutesRouter);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
