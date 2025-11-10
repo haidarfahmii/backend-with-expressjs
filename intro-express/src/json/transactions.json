@@ -1,0 +1,29 @@
+[
+  {
+    "transaction_id": "TRX1762485119995",
+    "uid": "user-test-123",
+    "route_id": "RT003",
+    "booking_date": "2025-11-10",
+    "departure_time": "14:00",
+    "total_seat": 2,
+    "total_price": 270000
+  },
+  {
+    "transaction_id": "TRX1762485192790",
+    "uid": "user-9877",
+    "route_id": "RT001",
+    "booking_date": "2025-11-09",
+    "departure_time": "09:00",
+    "total_seat": 1,
+    "total_price": 150000
+  },
+  {
+    "transaction_id": "TRX1762485223643",
+    "uid": "user-9877",
+    "route_id": "RT001",
+    "booking_date": "2025-11-09",
+    "departure_time": "09:00",
+    "total_seat": 11,
+    "total_price": 1650000
+  }
+]

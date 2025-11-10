@@ -1,0 +1,44 @@
+[
+  {
+    "id": "RT001",
+    "departure_city": "Jakarta",
+    "destination_city": "Bandung",
+    "schedules": [
+      {
+        "departure_time": "09:00",
+        "arrival_time": "12:00"
+      }
+    ],
+    "vehicle": "Hiace",
+    "total_seat": 12,
+    "price": 150000
+  },
+  {
+    "id": "RT002",
+    "departure_city": "Surabaya",
+    "destination_city": "Malang",
+    "schedules": [
+      {
+        "departure_time": "10:00",
+        "arrival_time": "12:30"
+      }
+    ],
+    "vehicle": "Elf",
+    "total_seat": 16,
+    "price": 120000
+  },
+  {
+    "id": "RT003",
+    "departure_city": "Yogyakarta",
+    "destination_city": "Semarang",
+    "schedules": [
+      {
+        "departure_time": "14:00",
+        "arrival_time": "17:30"
+      }
+    ],
+    "vehicle": "Travello",
+    "total_seat": 10,
+    "price": 135000
+  }
+]
